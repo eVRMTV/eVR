@@ -140,7 +140,7 @@ namespace EVR.ReadVehicleLicenseCardDemo
             }
             catch (eVRCardReaderException ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               MessageBox.Show("Unfortunately, this smartcard can not be read", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -163,7 +163,7 @@ namespace EVR.ReadVehicleLicenseCardDemo
             this.ProcessNode(body, null, cvoItems);
             BindingSource bs = new BindingSource();
             bs.DataSource = cvoItems;
-            DataGridView dg = new DataGridView();
+            CustomDataGridView dg = new CustomDataGridView();
             dg.ReadOnly = true;
             dg.AllowUserToAddRows = false;
             dg.AllowUserToDeleteRows = false;

@@ -68,6 +68,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CVOItem.cs" />
     <Compile Include="FlatTabControl.cs">
       <SubType>Component</SubType>
@@ -126,9 +129,7 @@
       <DependentUpon>RegistrationCardFront.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
-    <None Include="CSCA GAT NL eVRD 01.cer">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="CSCA NL eVRD 01.cer" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -162,6 +163,7 @@
     <Content Include="Resources\Insert card.png" />
     <Content Include="Resources\kentekenbewijs_ak_new.png" />
     <Content Include="Resources\kentekenbewijs_vk_new.png" />
+    <Content Include="translations.txt" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
