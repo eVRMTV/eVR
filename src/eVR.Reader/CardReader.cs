@@ -323,7 +323,8 @@ namespace EVR.Reader
             SCardError err = this.crdReader.Transmit(readFile, ref pbRecvBuffer);
             if (err != SCardError.Success)
             {
-                throw new CardReaderException(err, SCardHelper.StringifyError(err));
+				TS.TraceV("CardReaderException: \"{0}\".", SCardHelper.StringifyError(err));
+                throw new CardReaderException(err, "Unfortunately, this smart card can not be read");
             }
 
             ResponseApdu resp = new ResponseApdu(pbRecvBuffer, IsoCase.Case4Extended, this.crdReader.ActiveProtocol);
