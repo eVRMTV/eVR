@@ -1,4 +1,2 @@
-At the time of writing, we are not ready to publish the public release of the specification.
-It will be posted as soon as possible.
-
+The DA12 specfication is published in open document format(odt) and portable document format (pdf).
 
