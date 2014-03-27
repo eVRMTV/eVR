@@ -136,7 +136,7 @@ namespace EVR.Reader
                     "No data available reading FileID \"{0}\" with AID \"{1}\".", Helper.ByteArrayToString(FileID), Helper.ByteArrayToString(AID)));
             }
 
-            TLVList myanswer = TLV.Parse(new MemoryStream(fileInfo), true);
+            TLVList myanswer = TLV.Parse(new MemoryStream(fileInfo));
 
             TLV fileLengthTLV = myanswer.getTag("1,62|1,80");
             if (fileLengthTLV == null)
@@ -349,7 +349,8 @@ namespace EVR.Reader
             SCardError err = reader.Connect(this.ReaderName, SCardShareMode.Shared, SCardProtocol.T0 | SCardProtocol.T1);
             if (err != SCardError.Success)
             {
-                throw new CardReaderException(err, SCardHelper.StringifyError(err));
+                TS.TraceV("CardReaderException: \"{0}\".", SCardHelper.StringifyError(err));
+                throw new CardReaderException(err, "Unfortunately, this smart card can not be read");
             }
 
             if (reader.ActiveProtocol != SCardProtocol.T0 && reader.ActiveProtocol != SCardProtocol.T1)

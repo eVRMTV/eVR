@@ -76,17 +76,12 @@ namespace EVR.TLVParser
 
         public static TLVList Parse(Stream s)
         {
-            return TLV.Parse(s, false);
-        }
-
-        public static TLVList Parse(Stream s, bool unpackSequenceValues)
-        {
             TLVList l = new TLVList();
 
             while (s.Position < s.Length)
             {
                 TLV t = new TLV(s);
-                t.Childs = TLV.ParseTagList(t.Value, unpackSequenceValues);
+                t.Childs = TLV.ParseTagList(t.Value);
                 l.Add(t);
             }
 
@@ -110,7 +105,7 @@ namespace EVR.TLVParser
             }
         }
 
-        private static TLVList ParseTagList(byte[] data, bool unpackSequenceValues)
+      private static TLVList ParseTagList(byte[] data)
         {
             TLVList tagList = new TLVList();
             MemoryStream ms = new MemoryStream(data);
@@ -120,20 +115,10 @@ namespace EVR.TLVParser
                 TLV tlv = new TLV(ms);
 
                 if (tlv.Value != null && tlv.Value.Length > 0)
-                {
-                    Asn1TagValue asn1Tag;
-
-                    if ((tlv.Value[0] & (byte)Asn1TagClassValue.CLASS_MASK) != 0)
+                {                   
+                    if (tlv.isConstructed)
                     {
-                        asn1Tag = (Asn1TagValue)(tlv.Value[0] & (byte)Asn1TagClassValue.CLASS_MASK);
-                    }
-                    else
-                    {
-                        asn1Tag = (Asn1TagValue)(tlv.Value[0] & (byte)Asn1TagValue.TAG_MASK);
-                    }
-                    if (tlv.isConstructed || (unpackSequenceValues && asn1Tag == Asn1TagValue.SEQUENCE))
-                    {
-                        tlv.Childs = TLV.ParseTagList(tlv.Value, unpackSequenceValues);
+                        tlv.Childs = TLV.ParseTagList(tlv.Value);
                     }
                     tagList.Add(tlv);
                 }

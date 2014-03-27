@@ -19,6 +19,7 @@ namespace EVR.Reader
     using EVR.TLVParser;
     using EVR.Utils;
     using System;
+    using System.IO;
 
     public class EFSOd : ElementaryFile
     {
@@ -282,23 +283,48 @@ namespace EVR.Reader
         {
             get
             {
-                System.Security.Cryptography.Oid oid = new System.Security.Cryptography.Oid(EVR.Utils.Oid.Decode(this.GetTag("1,30|1,A0|1,30|1,30|1,A0|1,04|1,30|1,30|1,06").Value));
+                TLV oidTLV = this.ParseEFSOD(this,"1,30|1,30|1,06");             
+                System.Security.Cryptography.Oid oid = new System.Security.Cryptography.Oid(EVR.Utils.Oid.Decode(oidTLV.Value));
+
                 return HashAlgorithm.Create(oid.FriendlyName);
             }
         }
 
         public byte[] GetDataGroupHashValue(byte[] dataGroupFileIdentifier)
         {
-            TLV dataGroupHashValues = this.GetTag("1,30|1,A0|1,30|1,30|1,A0|1,04|1,30|2,30");
-
-            for (int i = 0; i < dataGroupHashValues.Childs.Count; i++)
+            TLV dataGroupHashValuesTLV = this.ParseEFSOD(this, "1,30|2,30");             
+          
+            for (int i = 0; i < dataGroupHashValuesTLV.Childs.Count; i++)
             {
-                if (EVR.Utils.Helper.CompareByteArrays(dataGroupHashValues.Childs[i].Childs[0].Value, dataGroupFileIdentifier))
+                if (EVR.Utils.Helper.CompareByteArrays(dataGroupHashValuesTLV.Childs[i].Childs[0].Value, dataGroupFileIdentifier))
                 {
-                    return dataGroupHashValues.Childs[i].Childs[1].Value;
+                    return dataGroupHashValuesTLV.Childs[i].Childs[1].Value;
                 }
             }
             return null;
+        }
+        
+        
+        /// <summary>
+        /// Het complete RDWSecurityObject in het SOD (waarde van tag ‘04’) opnieuw laten parsen.
+        /// </summary>
+        /// <param name="efSod"></param>
+        /// <param name="oidORdataGroupHashValues"></param>
+        /// <returns>TLV</returns>
+        public TLV ParseEFSOD(EFSOd efSod, string oidORdataGroupHashValues)
+        {
+            if (string.IsNullOrEmpty(oidORdataGroupHashValues))
+            {
+                throw new ArgumentException("Argument should not be null or empty", "oidORdataGroupHashValues");
+            }
+            if (efSod == null)
+            {
+                return null;
+            }
+            TLV tlv = efSod.GetTag("1,30|1,A0|1,30|1,30|1,A0|1,04");
+            MemoryStream ms = new MemoryStream(tlv.Value);
+            TLVList l = TLV.Parse(ms);
+            return l.getTag(oidORdataGroupHashValues);
         }
     }
 }

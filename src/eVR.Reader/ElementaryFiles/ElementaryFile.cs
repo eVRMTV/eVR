@@ -82,7 +82,7 @@ namespace EVR.Reader
                 throw new ElementaryFileException(FileID, string.Format("Error reading EF: AID = \"{0}\", FileID = \"{1}\".", Helper.ByteArrayToString(AID), Helper.ByteArrayToString(FileID)));
             }
 
-            this.tagListEF = TLV.Parse(new MemoryStream(this.Value), true);
+            this.tagListEF = TLV.Parse(new MemoryStream(this.Value));
             TS.TraceI("Number of elements in EF: \"{0}\".", this.tagListEF.Count);
             TS.TraceI("ElementaryFile constructed.");
         }
