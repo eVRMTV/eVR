@@ -182,9 +182,15 @@ namespace FlatTabControl
 
 			//----------------------------
 			// draw background to cover flat border areas
-			if (this.SelectedTab != null)
+			TabPage selectedTab = null;
+		    	if(this.SelectedIndex < this.TabPages.Count)//prevent indexoutofrange exception in case you add a tab dynamically...
+		    	{
+				selectedTab = this.SelectedTab;
+		    	}
+			
+			if (selectedTab != null)
 			{
-				TabPage tabPage = this.SelectedTab;
+				TabPage tabPage = selectedTab;
 				Color color = tabPage.BackColor;
 				border = new Pen(color);
 				
