@@ -32,7 +32,6 @@ namespace EVR.ReadVehicleLicenseCardDemo
         /// eVRCardReader object
         /// </summary>
         private eVRCardReader evrCardReaderDemo;
-        
         /// <summary>
         /// Initializes a new instance of the <see cref="FormeVRDemo"/> class
         /// </summary>
@@ -41,8 +40,37 @@ namespace EVR.ReadVehicleLicenseCardDemo
             this.InitializeComponent();
             try
             {
-                X509Certificate2 csca = new X509Certificate2(EVRCardReaderAppSettings.CSCAFilename);                            
-                this.evrCardReaderDemo = new eVRCardReader(csca, null, this.Monitor_CardInserted);
+                var dir = EVRCardReaderAppSettings.CSCAFileDir;
+                if (string.IsNullOrEmpty(dir))
+                {
+                    MessageBox.Show("No Directory set for certificates", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Application.Exit();
+                }
+                var cscaFiles = Directory.GetFiles(dir);
+                var number = cscaFiles.Length;
+                if (number == 0)
+                {
+                    MessageBox.Show("No certificates found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Application.Exit();
+                }
+                else if (number == 1)
+                {
+                    X509Certificate2 csca = new X509Certificate2(cscaFiles[0]);
+                    this.evrCardReaderDemo = new eVRCardReader(csca, null, this.Monitor_CardInserted);
+                }
+                else if (number > 1)
+                {
+                    var index = 0;
+                    X509Certificate2[] cscaList = new X509Certificate2[number];
+                    foreach (var cscaFile in cscaFiles)
+                    {
+                        cscaList[index] = new X509Certificate2(cscaFile);
+                        index++;
+                    }
+                    this.evrCardReaderDemo = new eVRCardReader(cscaList, null, this.Monitor_CardInserted);
+
+                }
+                 
             }
             catch (Exception ex)
             {
@@ -50,6 +78,7 @@ namespace EVR.ReadVehicleLicenseCardDemo
             }
         }
 
+      
         /// <summary>
         /// CardInserted event
         /// </summary>
@@ -236,5 +265,10 @@ namespace EVR.ReadVehicleLicenseCardDemo
                 return false;
             }
          }
+
+        private void FormeVRDemo_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
