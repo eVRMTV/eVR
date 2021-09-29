@@ -13,8 +13,7 @@ De Nederlandse kentekenkaart voldoet aan de Europese richtlijn 2003/123/EC [1]. 
 
 Er wordt van uitgegaan dat de gebruiker bekend is met asymmetrische cryptografie en public key infrastructuren.
 
-**LET OP!**
-
+# LET OP! CVO Tijdelijk niet leesbaar
 I.v.m. problemen met het uitlezen van de CVO data op kentekenkaarten uitgegeven vanaf begin september 2021 is CVO tijdelijk uitgeschakeld. 
 Er wordt gewerkt aan een nieuwe versie om dit weer inzichtelijk te krijgen.
 Deze versie inclusief demo project is geupdate en werkt tegen alle kentekenkaarten (ook die met een nieuwe chip)
