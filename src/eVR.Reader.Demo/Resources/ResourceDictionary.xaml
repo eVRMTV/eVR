@@ -1,0 +1,7 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/eVR.Reader.Demo;component/Style/Styles.xaml"/>
+        <ResourceDictionary Source="/eVR.Reader.Demo;component/Resources/DataTemplates.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

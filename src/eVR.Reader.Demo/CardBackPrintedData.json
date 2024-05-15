@@ -1,0 +1,1169 @@
+{
+  "OLD": {
+    "A-1": {
+      "Code": "E",
+      "Description": "Voertuigidentificatienummer",
+      "Registration": "A",
+      "Tag": "71|8A"
+    },
+    "A-2": {
+      "Code": "D.1",
+      "Description": "Merk",
+      "Registration": "A",
+      "Tag": "71|A3|87"
+    },
+    "A-3": {
+      "Code": "J",
+      "Description": "Voertuigcategorie",
+      "Registration": "B",
+      "Tag": "72|98"
+    },
+    "A-4": {
+      "Code": "D.2",
+      "Description": "Type",
+      "Registration": "A",
+      "Tag": "71|A3|88"
+    },
+    "A-5": {
+      "Code": "D.2",
+      "Description": "Variant",
+      "Registration": "C",
+      "Tag": "BF8700|BF8810|9F8811"
+    },
+    "A-6": {
+      "Code": "D.2",
+      "Description": "Uitvoering",
+      "Registration": "C",
+      "Tag": "BF8700|BF8810|9F8812"
+    },
+    "A-7": {
+      "Code": "D.3",
+      "Description": "Handelsbenaming",
+      "Registration": "A",
+      "Tag": "71|A3|89",
+      "Presentation": "Split",
+      "PresentationMaxLength": 40,
+      "PresentationIndex": 0
+    },
+    "A-8": {
+      "Registration": "A",
+      "Tag": "71|A3|89",
+      "Presentation": "Split",
+      "PresentationMaxLength": 40,
+      "PresentationIndex": 1
+    },
+    "A-9": {
+      "Code": "R",
+      "Description": "Kleur",
+      "Registration": "B",
+      "Tag": "72|9F24"
+    },
+    "A-10": {
+      "Code": "K",
+      "Description": "Typegoedkeuringsnummer",
+      "Registration": "A",
+      "Tag": "71|8F"
+    },
+    "A-11": {
+      "Code": "V.9",
+      "Description": "Milieuklasse EG-goedkeuring",
+      "Registration": "B",
+      "Tag": "72|B0|9F31"
+    },
+    "A-12": {
+      "Code": "F.1",
+      "Description": "Technische max. massa",
+      "Registration": "A",
+      "Tag": "71|A4|8B"
+    },
+    "A-13": {
+      "Code": "F.2",
+      "Description": "Toegestane max. massa",
+      "Registration": "B",
+      "Tag": "72|A4|96"
+    },
+    "A-14": {
+      "Code": "F.3",
+      "Description": "Toegestane max. massa comb.",
+      "Registration": "B",
+      "Tag": "72|A4|97"
+    },
+    "A-15": {
+      "Code": "P.1",
+      "Description": "Cilinderinhoud",
+      "Registration": "A",
+      "Tag": "71|A5|90"
+    },
+    "A-16": {
+      "Code": "P.2",
+      "Description": "Vermogen",
+      "Registration": "A",
+      "Tag": "71|A5|91"
+    },
+    "A-17": {
+      "Code": "P.3",
+      "Description": "Brandstof",
+      "Registration": "A",
+      "Tag": "71|A5|92"
+    },
+    "A-18": {
+      "Code": "Q",
+      "Description": "Vermogen/massa",
+      "Registration": "A",
+      "Tag": "71|93"
+    },
+    "A-19": {
+      "Code": "O.1",
+      "Description": "Techn. max. massa AHW (geremd)",
+      "Registration": "B",
+      "Tag": "72|AE|9B"
+    },
+    "A-20": {
+      "Code": "O.2",
+      "Description": "Techn. max. massa AHW (ongeremd)",
+      "Registration": "B",
+      "Tag": "72|AE|9C"
+    },
+    "A-21": {
+      "Code": "G",
+      "Description": "Massa rijklaar",
+      "Registration": "A",
+      "Tag": "71|8C"
+    },
+    "A-22": {
+      "Code": "T",
+      "Description": "Max. snelheid",
+      "Registration": "B",
+      "Tag": "72|9F25"
+    },
+    "A-23": {
+      "Code": "S.1",
+      "Description": "Zitplaatsen",
+      "Registration": "A",
+      "Tag": "71|A6|94"
+    },
+    "A-24": {
+      "Code": "S.2",
+      "Description": "Staanplaatsen",
+      "Registration": "A",
+      "Tag": "71|A6|95"
+    }
+  },
+  "M1": {
+    "A-1": {
+      "Code": "E",
+      "Description": "Voertuigidentificatienummer",
+      "Registration": "A",
+      "Tag": "71|8A"
+    },
+    "A-2": {
+      "Code": "J",
+      "Description": "Voertuigcategorie",
+      "Registration": "B",
+      "Tag": "72|98"
+    },
+    "A-3": {
+      "Code": "D.1",
+      "Description": "Merk",
+      "Registration": "A",
+      "Tag": "71|A3|87"
+    },
+    "A-4": {
+      "Code": "D.2",
+      "Description": "Type",
+      "Registration": "A",
+      "Tag": "71|A3|88"
+    },
+    "A-5": {
+      "Code": "D.2",
+      "Description": "Variant",
+      "Registration": "C",
+      "Tag": "BF8700|BF8810|9F8811"
+    },
+    "A-6": {
+      "Code": "D.2",
+      "Description": "Uitvoering",
+      "Registration": "C",
+      "Tag": "BF8700|BF8810|9F8812"
+    },
+    "A-7": {
+      "Code": "D.3",
+      "Description": "Handelsbenaming",
+      "Registration": "A",
+      "Tag": "71|A3|89",
+      "Presentation": "Split",
+      "PresentationMaxLength": 40,
+      "PresentationIndex": 0
+    },
+    "A-8": {
+      "Registration": "A",
+      "Tag": "71|A3|89",
+      "Presentation": "Split",
+      "PresentationMaxLength": 40,
+      "PresentationIndex": 1
+    },
+    "A-9": {
+      "Code": "R",
+      "Description": "Kleur",
+      "Registration": "B",
+      "Tag": "72|9F24"
+    },
+    "A-10": {
+      "Code": "K",
+      "Description": "Typegoedkeuringsnummer",
+      "Registration": "A",
+      "Tag": "71|8F"
+    },
+    "A-11": {
+      "Code": "V.9",
+      "Description": "Milieuklasse EG-goedkeuring",
+      "Registration": "B",
+      "Tag": "72|B0|9F31"
+    },
+    "A-12": {
+      "Code": "V.9",
+      "Description": "Milieuklasse EG",
+      "Registration": "C",
+      "Tag": "BF8700|BF8810|9F8813"
+    },
+    "A-13": {
+      "Code": "F.1",
+      "Description": "Technische max. massa",
+      "Registration": "A",
+      "Tag": "71|A4|8B"
+    },
+    "A-14": {
+      "Code": "F.2",
+      "Description": "Toegestane max. massa",
+      "Registration": "B",
+      "Tag": "72|A4|96"
+    },
+    "A-15": {
+      "Code": "P.1",
+      "Description": "Cilinderinhoud",
+      "Registration": "A",
+      "Tag": "71|A5|90"
+    },
+    "A-16": {
+      "Code": "P.2",
+      "Description": "Vermogen",
+      "Registration": "A",
+      "Tag": "71|A5|91"
+    },
+    "A-17": {
+      "Code": "P.3",
+      "Description": "Brandstof",
+      "Registration": "A",
+      "Tag": "71|A5|92"
+    },
+    "A-18": {
+      "Code": "O.1",
+      "Description": "Techn. max. massa AHW (geremd)",
+      "Registration": "B",
+      "Tag": "72|AE|9B"
+    },
+    "A-19": {
+      "Code": "O.2",
+      "Description": "Techn. max. massa AHW (ongeremd)",
+      "Registration": "B",
+      "Tag": "72|AE|9C"
+    },
+    "A-20": {
+      "Code": "H",
+      "Description": "Inschrijving geldig tot",
+      "Registration": "A",
+      "Tag": "71|8D",
+      "Presentation": "Date",
+      "Optional": true
+    },
+    "A-22": {
+      "Code": "G",
+      "Description": "Massa rijklaar",
+      "Registration": "A",
+      "Tag": "71|8C"
+    },
+    "A-23": {
+      "Code": "T",
+      "Description": "Max. snelheid",
+      "Registration": "B",
+      "Tag": "72|9F25"
+    },
+    "A-24": {
+      "Code": "S.1",
+      "Description": "Zitplaatsen",
+      "Registration": "A",
+      "Tag": "71|A6|94"
+    }
+  },
+  "M2;M3": {
+    "A-1": {
+      "Code": "E",
+      "Description": "Voertuigidentificatienummer",
+      "Registration": "A",
+      "Tag": "71|8A"
+    },
+    "A-2": {
+      "Code": "J",
+      "Description": "Voertuigcategorie",
+      "Registration": "B",
+      "Tag": "72|98"
+    },
+    "A-3": {
+      "Code": "D.1",
+      "Description": "Merk",
+      "Registration": "A",
+      "Tag": "71|A3|87"
+    },
+    "A-4": {
+      "Code": "D.2",
+      "Description": "Type",
+      "Registration": "A",
+      "Tag": "71|A3|88"
+    },
+    "A-5": {
+      "Code": "D.2",
+      "Description": "Variant",
+      "Registration": "C",
+      "Tag": "BF8700|BF8810|9F8811"
+    },
+    "A-6": {
+      "Code": "D.2",
+      "Description": "Uitvoering",
+      "Registration": "C",
+      "Tag": "BF8700|BF8810|9F8812"
+    },
+    "A-7": {
+      "Code": "D.3",
+      "Description": "Handelsbenaming",
+      "Registration": "A",
+      "Tag": "71|A3|89",
+      "Presentation": "Split",
+      "PresentationMaxLength": 40,
+      "PresentationIndex": 0
+    },
+    "A-8": {
+      "Registration": "A",
+      "Tag": "71|A3|89",
+      "Presentation": "Split",
+      "PresentationMaxLength": 40,
+      "PresentationIndex": 1
+    },
+    "A-9": {
+      "Code": "K",
+      "Description": "Typegoedkeuringsnummer",
+      "Registration": "A",
+      "Tag": "71|8F"
+    },
+    "A-10": {
+      "Code": "V.9",
+      "Description": "Milieuklasse EG-goedkeuring",
+      "Registration": "B",
+      "Tag": "72|B0|9F31"
+    },
+    "A-11": {
+      "Code": "V.9",
+      "Description": "Milieuklasse EG",
+      "Registration": "C",
+      "Tag": "BF8700|BF8810|9F8813"
+    },
+    "A-12": {
+      "Code": "F.1",
+      "Description": "Technische max. massa",
+      "Registration": "A",
+      "Tag": "71|A4|8B"
+    },
+    "A-13": {
+      "Code": "F.2",
+      "Description": "Toegestane max. massa",
+      "Registration": "B",
+      "Tag": "72|A4|96"
+    },
+    "A-14": {
+      "Code": "F.3",
+      "Description": "Toegestane max. massa comb.",
+      "Registration": "B",
+      "Tag": "72|A4|97"
+    },
+    "A-15": {
+      "Code": "P.1",
+      "Description": "Cilinderinhoud",
+      "Registration": "A",
+      "Tag": "71|A5|90"
+    },
+    "A-16": {
+      "Code": "P.2",
+      "Description": "Vermogen",
+      "Registration": "A",
+      "Tag": "71|A5|91"
+    },
+    "A-17": {
+      "Code": "P.3",
+      "Description": "Brandstof",
+      "Registration": "A",
+      "Tag": "71|A5|92"
+    },
+    "A-18": {
+      "Code": "H",
+      "Description": "Inschrijving geldig tot",
+      "Registration": "A",
+      "Tag": "71|8D",
+      "Presentation": "Date",
+      "Optional": true
+    },
+    "A-21": {
+      "Code": "G",
+      "Description": "Massa rijklaar",
+      "Registration": "A",
+      "Tag": "71|8C"
+    },
+    "A-22": {
+      "Code": "T",
+      "Description": "Max. snelheid",
+      "Registration": "B",
+      "Tag": "72|9F25"
+    },
+    "A-23": {
+      "Code": "S.1",
+      "Description": "Zitplaatsen",
+      "Registration": "A",
+      "Tag": "71|A6|94"
+    },
+    "A-24": {
+      "Code": "S.2",
+      "Description": "Staanplaatsen",
+      "Registration": "A",
+      "Tag": "71|A6|95"
+    }
+  },
+  "N1": {
+    "A-1": {
+      "Code": "E",
+      "Description": "Voertuigidentificatienummer",
+      "Registration": "A",
+      "Tag": "71|8A"
+    },
+    "A-2": {
+      "Code": "J",
+      "Description": "Voertuigcategorie",
+      "Registration": "B",
+      "Tag": "72|98"
+    },
+    "A-3": {
+      "Code": "D.1",
+      "Description": "Merk",
+      "Registration": "A",
+      "Tag": "71|A3|87"
+    },
+    "A-4": {
+      "Code": "D.2",
+      "Description": "Type",
+      "Registration": "A",
+      "Tag": "71|A3|88"
+    },
+    "A-5": {
+      "Code": "D.2",
+      "Description": "Variant",
+      "Registration": "C",
+      "Tag": "BF8700|BF8810|9F8811"
+    },
+    "A-6": {
+      "Code": "D.2",
+      "Description": "Uitvoering",
+      "Registration": "C",
+      "Tag": "BF8700|BF8810|9F8812"
+    },
+    "A-7": {
+      "Code": "D.3",
+      "Description": "Handelsbenaming",
+      "Registration": "A",
+      "Tag": "71|A3|89",
+      "Presentation": "Split",
+      "PresentationMaxLength": 40,
+      "PresentationIndex": 0
+    },
+    "A-8": {
+      "Registration": "A",
+      "Tag": "71|A3|89",
+      "Presentation": "Split",
+      "PresentationMaxLength": 40,
+      "PresentationIndex": 1
+    },
+    "A-9": {
+      "Code": "K",
+      "Description": "Typegoedkeuringsnummer",
+      "Registration": "A",
+      "Tag": "71|8F"
+    },
+    "A-10": {
+      "Code": "V.9",
+      "Description": "Milieuklasse EG-goedkeuring",
+      "Registration": "B",
+      "Tag": "72|B0|9F31"
+    },
+    "A-11": {
+      "Code": "V.9",
+      "Description": "Milieuklasse EG",
+      "Registration": "C",
+      "Tag": "BF8700|BF8810|9F8813"
+    },
+    "A-12": {
+      "Code": "S.1",
+      "Description": "Zitplaatsen",
+      "Registration": "A",
+      "Tag": "71|A6|94"
+    },
+    "A-13": {
+      "Code": "F.1",
+      "Description": "Technische max. massa",
+      "Registration": "A",
+      "Tag": "71|A4|8B"
+    },
+    "A-14": {
+      "Code": "F.2",
+      "Description": "Toegestane max. massa",
+      "Registration": "B",
+      "Tag": "72|A4|96"
+    },
+    "A-15": {
+      "Code": "G",
+      "Description": "Massa rijklaar",
+      "Registration": "A",
+      "Tag": "71|8C"
+    },
+    "A-16": {
+      "Code": "O.2",
+      "Description": "Techn. max. massa AHW (ongeremd)",
+      "Registration": "B",
+      "Tag": "72|AE|9C"
+    },
+    "A-17": {
+      "Description": "Toegestane max. massa middenas",
+      "Registration": "C",
+      "Tag": "BF8700|BF8810|9F8814"
+    },
+    "A-18": {
+      "Description": "Toegestane max. massa autonoom",
+      "Registration": "C",
+      "Tag": "BF8700|BF8810|9F8815"
+    },
+    "A-19": {
+      "Description": "Toegestane max. massa oplegger",
+      "Registration": "C",
+      "Tag": "BF8700|BF8810|9F8816",
+      "Optional": true
+    },
+
+    "A-20": {
+      "Code": "H",
+      "Description": "Inschrijving geldig tot",
+      "Registration": "A",
+      "Tag": "71|8D",
+      "Presentation": "Date",
+      "Optional": true
+    },
+    "A-21": {
+      "Code": "P.1",
+      "Description": "Cilinderinhoud",
+      "Registration": "A",
+      "Tag": "71|A5|90"
+    },
+    "A-22": {
+      "Code": "P.2",
+      "Description": "Vermogen",
+      "Registration": "A",
+      "Tag": "71|A5|91"
+    },
+    "A-23": {
+      "Code": "P.3",
+      "Description": "Brandstof",
+      "Registration": "A",
+      "Tag": "71|A5|92"
+    },
+    "A-24": {
+      "Code": "T",
+      "Description": "Max. snelheid",
+      "Registration": "B",
+      "Tag": "72|9F25"
+    }
+  },
+  "N2;N3": {
+    "A-1": {
+      "Code": "E",
+      "Description": "Voertuigidentificatienummer",
+      "Registration": "A",
+      "Tag": "71|8A"
+    },
+    "A-2": {
+      "Code": "J",
+      "Description": "Voertuigcategorie",
+      "Registration": "B",
+      "Tag": "72|98"
+    },
+    "A-3": {
+      "Code": "D.1",
+      "Description": "Merk",
+      "Registration": "A",
+      "Tag": "71|A3|87"
+    },
+    "A-4": {
+      "Code": "D.2",
+      "Description": "Type",
+      "Registration": "A",
+      "Tag": "71|A3|88"
+    },
+    "A-5": {
+      "Code": "D.2",
+      "Description": "Variant",
+      "Registration": "C",
+      "Tag": "BF8700|BF8810|9F8811"
+    },
+    "A-6": {
+      "Code": "D.2",
+      "Description": "Uitvoering",
+      "Registration": "C",
+      "Tag": "BF8700|BF8810|9F8812"
+    },
+    "A-7": {
+      "Code": "D.3",
+      "Description": "Handelsbenaming",
+      "Registration": "A",
+      "Tag": "71|A3|89",
+      "Presentation": "Split",
+      "PresentationMaxLength": 40,
+      "PresentationIndex": 0
+    },
+    "A-8": {
+      "Registration": "A",
+      "Tag": "71|A3|89",
+      "Presentation": "Split",
+      "PresentationMaxLength": 40,
+      "PresentationIndex": 1
+    },
+    "A-9": {
+      "Code": "K",
+      "Description": "Typegoedkeuringsnummer",
+      "Registration": "A",
+      "Tag": "71|8F"
+    },
+    "A-10": {
+      "Code": "V.9",
+      "Description": "Milieuklasse EG-goedkeuring",
+      "Registration": "B",
+      "Tag": "72|B0|9F31"
+    },
+    "A-11": {
+      "Code": "V.9",
+      "Description": "Milieuklasse EG",
+      "Registration": "C",
+      "Tag": "BF8700|BF8810|9F8813"
+    },
+    "A-12": {
+      "Code": "F.1",
+      "Description": "Technische max. massa",
+      "Registration": "A",
+      "Tag": "71|A4|8B"
+    },
+    "A-13": {
+      "Code": "F.2",
+      "Description": "Toegestane max. massa",
+      "Registration": "B",
+      "Tag": "72|A4|96"
+    },
+    "A-14": {
+      "Code": "F.3",
+      "Description": "Toegestane max. massa comb.",
+      "Registration": "B",
+      "Tag": "72|A4|97"
+    },
+    "A-15": {
+      "Code": "P.1",
+      "Description": "Cilinderinhoud",
+      "Registration": "A",
+      "Tag": "71|A5|90"
+    },
+    "A-16": {
+      "Code": "P.2",
+      "Description": "Vermogen",
+      "Registration": "A",
+      "Tag": "71|A5|91"
+    },
+    "A-17": {
+      "Code": "P.3",
+      "Description": "Brandstof",
+      "Registration": "A",
+      "Tag": "71|A5|92"
+    },
+    "A-18": {
+      "Code": "H",
+      "Description": "Inschrijving geldig tot",
+      "Registration": "A",
+      "Tag": "71|8D",
+      "Presentation": "Date",
+      "Optional": true
+    },
+    "A-21": {
+      "Code": "G",
+      "Description": "Massa rijklaar",
+      "Registration": "A",
+      "Tag": "71|8C"
+    },
+    "A-22": {
+      "Code": "T",
+      "Description": "Max. snelheid",
+      "Registration": "B",
+      "Tag": "72|9F25"
+    },
+    "A-23": {
+      "Code": "S.1",
+      "Description": "Zitplaatsen",
+      "Registration": "A",
+      "Tag": "71|A6|94"
+    }
+  },
+  "L1;L2;L5;L6;L7": {
+    "A-1": {
+      "Code": "E",
+      "Description": "Voertuigidentificatienummer",
+      "Registration": "A",
+      "Tag": "71|8A"
+    },
+    "A-2": {
+      "Code": "J",
+      "Description": "Voertuigcategorie",
+      "Registration": "B",
+      "Tag": "72|98"
+    },
+    "A-3": {
+      "Code": "D.1",
+      "Description": "Merk",
+      "Registration": "A",
+      "Tag": "71|A3|87"
+    },
+    "A-4": {
+      "Code": "D.2",
+      "Description": "Type",
+      "Registration": "A",
+      "Tag": "71|A3|88"
+    },
+    "A-5": {
+      "Code": "D.2",
+      "Description": "Variant",
+      "Registration": "C",
+      "Tag": "BF8700|BF8810|9F8811"
+    },
+    "A-6": {
+      "Code": "D.2",
+      "Description": "Uitvoering",
+      "Registration": "C",
+      "Tag": "BF8700|BF8810|9F8812"
+    },
+    "A-7": {
+      "Code": "D.3",
+      "Description": "Handelsbenaming",
+      "Registration": "A",
+      "Tag": "71|A3|89",
+      "Presentation": "Split",
+      "PresentationMaxLength": 40,
+      "PresentationIndex": 0
+    },
+    "A-8": {
+      "Registration": "A",
+      "Tag": "71|A3|89",
+      "Presentation": "Split",
+      "PresentationMaxLength": 40,
+      "PresentationIndex": 1
+    },
+    "A-9": {
+      "Code": "K",
+      "Description": "Typegoedkeuringsnummer",
+      "Registration": "A",
+      "Tag": "71|8F"
+    },
+    "A-10": {
+      "Code": "F.1",
+      "Description": "Technische max. massa",
+      "Registration": "A",
+      "Tag": "71|A4|8B"
+    },
+    "A-11": {
+      "Code": "G",
+      "Description": "Massa rijklaar",
+      "Registration": "A",
+      "Tag": "71|8C"
+    },
+    "A-12": {
+      "Code": "P.1",
+      "Description": "Cilinderinhoud",
+      "Registration": "A",
+      "Tag": "71|A5|90"
+    },
+    "A-13": {
+      "Code": "P.2",
+      "Description": "Vermogen",
+      "Registration": "A",
+      "Tag": "71|A5|91"
+    },
+    "A-14": {
+      "Code": "P.3",
+      "Description": "Brandstof",
+      "Registration": "A",
+      "Tag": "71|A5|92"
+    },
+    "A-15": {
+      "Code": "T",
+      "Description": "Max. snelheid",
+      "Registration": "B",
+      "Tag": "72|9F25"
+    },
+    "A-16": {
+      "Code": "S.1",
+      "Description": "Zitplaatsen",
+      "Registration": "A",
+      "Tag": "71|A6|94"
+    },
+    "A-17": {
+      "Code": "H",
+      "Description": "Inschrijving geldig tot",
+      "Registration": "A",
+      "Tag": "71|8D",
+      "Presentation": "Date",
+      "Optional": true
+    }
+  },
+  "L3;L4": {
+    "A-1": {
+      "Code": "E",
+      "Description": "Voertuigidentificatienummer",
+      "Registration": "A",
+      "Tag": "71|8A"
+    },
+    "A-2": {
+      "Code": "J",
+      "Description": "Voertuigcategorie",
+      "Registration": "B",
+      "Tag": "72|98"
+    },
+    "A-3": {
+      "Code": "D.1",
+      "Description": "Merk",
+      "Registration": "A",
+      "Tag": "71|A3|87"
+    },
+    "A-4": {
+      "Code": "D.2",
+      "Description": "Type",
+      "Registration": "A",
+      "Tag": "71|A3|88"
+    },
+    "A-5": {
+      "Code": "D.2",
+      "Description": "Variant",
+      "Registration": "C",
+      "Tag": "BF8700|BF8810|9F8811"
+    },
+    "A-6": {
+      "Code": "D.2",
+      "Description": "Uitvoering",
+      "Registration": "C",
+      "Tag": "BF8700|BF8810|9F8812"
+    },
+    "A-7": {
+      "Code": "D.3",
+      "Description": "Handelsbenaming",
+      "Registration": "A",
+      "Tag": "71|A3|89",
+      "Presentation": "Split",
+      "PresentationMaxLength": 40,
+      "PresentationIndex": 0
+    },
+    "A-8": {
+      "Registration": "A",
+      "Tag": "71|A3|89",
+      "Presentation": "Split",
+      "PresentationMaxLength": 40,
+      "PresentationIndex": 1
+    },
+    "A-9": {
+      "Code": "K",
+      "Description": "Typegoedkeuringsnummer",
+      "Registration": "A",
+      "Tag": "71|8F"
+    },
+    "A-10": {
+      "Code": "P.1",
+      "Description": "Cilinderinhoud",
+      "Registration": "A",
+      "Tag": "71|A5|90"
+    },
+    "A-11": {
+      "Code": "P.2",
+      "Description": "Vermogen",
+      "Registration": "A",
+      "Tag": "71|A5|91"
+    },
+    "A-12": {
+      "Code": "P.3",
+      "Description": "Brandstof",
+      "Registration": "A",
+      "Tag": "71|A5|92"
+    },
+    "A-13": {
+      "Code": "Q",
+      "Description": "Vermogen/massa",
+      "Registration": "A",
+      "Tag": "71|93"
+    },
+    "A-14": {
+      "Code": "G",
+      "Description": "Massa rijklaar",
+      "Registration": "A",
+      "Tag": "71|8C"
+    },
+    "A-15": {
+      "Code": "T",
+      "Description": "Max. snelheid",
+      "Registration": "B",
+      "Tag": "72|9F25"
+    },
+    "A-16": {
+      "Code": "S.1",
+      "Description": "Zitplaatsen",
+      "Registration": "A",
+      "Tag": "71|A6|94"
+    },
+    "A-17": {
+      "Code": "H",
+      "Description": "Inschrijving geldig tot",
+      "Registration": "A",
+      "Tag": "71|8D",
+      "Presentation": "Date",
+      "Optional": true
+    }
+  },
+  "O1;O2;O3;O4": {
+    "A-1": {
+      "Code": "E",
+      "Description": "Voertuigidentificatienummer",
+      "Registration": "A",
+      "Tag": "71|8A"
+    },
+    "A-2": {
+      "Code": "J",
+      "Description": "Voertuigcategorie",
+      "Registration": "B",
+      "Tag": "72|98"
+    },
+    "A-3": {
+      "Code": "D.1",
+      "Description": "Merk",
+      "Registration": "A",
+      "Tag": "71|A3|87"
+    },
+    "A-4": {
+      "Code": "D.2",
+      "Description": "Type",
+      "Registration": "A",
+      "Tag": "71|A3|88"
+    },
+    "A-5": {
+      "Code": "D.2",
+      "Description": "Variant",
+      "Registration": "C",
+      "Tag": "BF8700|BF8810|9F8811"
+    },
+    "A-6": {
+      "Code": "D.2",
+      "Description": "Uitvoering",
+      "Registration": "C",
+      "Tag": "BF8700|BF8810|9F8812"
+    },
+    "A-7": {
+      "Code": "D.3",
+      "Description": "Handelsbenaming",
+      "Registration": "A",
+      "Tag": "71|A3|89",
+      "Presentation": "Split",
+      "PresentationMaxLength": 40,
+      "PresentationIndex": 0
+    },
+    "A-8": {
+      "Registration": "A",
+      "Tag": "71|A3|89",
+      "Presentation": "Split",
+      "PresentationMaxLength": 40,
+      "PresentationIndex": 1
+    },
+    "A-9": {
+      "Code": "K",
+      "Description": "Typegoedkeuringsnummer",
+      "Registration": "A",
+      "Tag": "71|8F"
+    },
+    "A-10": {
+      "Code": "F.1",
+      "Description": "Technische max. massa",
+      "Registration": "A",
+      "Tag": "71|A4|8B"
+    },
+    "A-11": {
+      "Code": "F.2",
+      "Description": "Toegestane max. massa",
+      "Registration": "B",
+      "Tag": "72|A4|96"
+    },
+    "A-12": {
+      "Code": "G",
+      "Description": "Massa rijklaar",
+      "Registration": "A",
+      "Tag": "71|8C"
+    },
+    "A-13": {
+      "Code": "P.1",
+      "Description": "Cilinderinhoud",
+      "Registration": "A",
+      "Tag": "71|A5|90"
+    },
+    "A-14": {
+      "Code": "P.2",
+      "Description": "Vermogen",
+      "Registration": "A",
+      "Tag": "71|A5|91"
+    },
+    "A-15": {
+      "Code": "P.3",
+      "Description": "Brandstof",
+      "Registration": "A",
+      "Tag": "71|A5|92"
+    },
+    "A-16": {
+      "Code": "T",
+      "Description": "Max. snelheid",
+      "Registration": "B",
+      "Tag": "72|9F25"
+    },
+    "A-17": {
+      "Code": "S.1",
+      "Description": "Zitplaatsen",
+      "Registration": "A",
+      "Tag": "71|A6|94"
+    },
+    "A-18": {
+      "Code": "H",
+      "Description": "Inschrijving geldig tot",
+      "Registration": "A",
+      "Tag": "71|8D",
+      "Presentation": "Date",
+      "Optional": true
+    }
+  },
+  "R;S;T;C;U;Z": {
+    "A-1": {
+      "Code": "E",
+      "Description": "Voertuigidentificatienummer",
+      "Registration": "A",
+      "Tag": "71|8A"
+    },
+    "A-2": {
+      "Code": "J",
+      "Description": "Voertuigcategorie",
+      "Registration": "B",
+      "Tag": "72|98"
+    },
+    "A-3": {
+      "Code": "D.1",
+      "Description": "Merk",
+      "Registration": "A",
+      "Tag": "71|A3|87"
+    },
+    "A-4": {
+      "Code": "D.2",
+      "Description": "Type",
+      "Registration": "A",
+      "Tag": "71|A3|88"
+    },
+    "A-5": {
+      "Code": "D.2",
+      "Description": "Variant",
+      "Registration": "C",
+      "Tag": "BF8700|BF8810|9F8811"
+    },
+    "A-6": {
+      "Code": "D.2",
+      "Description": "Uitvoering",
+      "Registration": "C",
+      "Tag": "BF8700|BF8810|9F8812"
+    },
+    "A-7": {
+      "Code": "D.3",
+      "Description": "Handelsbenaming",
+      "Registration": "A",
+      "Tag": "71|A3|89",
+      "Presentation": "Split",
+      "PresentationMaxLength": 40,
+      "PresentationIndex": 0
+    },
+    "A-8": {
+      "Registration": "A",
+      "Tag": "71|A3|89",
+      "Presentation": "Split",
+      "PresentationMaxLength": 40,
+      "PresentationIndex": 1
+    },
+    "A-9": {
+      "Code": "K",
+      "Description": "Typegoedkeuringsnummer",
+      "Registration": "A",
+      "Tag": "71|8F"
+    },
+    "A-10": {
+      "Code": "F.1",
+      "Description": "Technische max. massa",
+      "Registration": "A",
+      "Tag": "71|A4|8B"
+    },
+    "A-11": {
+      "Code": "G",
+      "Description": "Massa rijklaar",
+      "Registration": "A",
+      "Tag": "71|8C"
+    },
+    "A-12": {
+      "Code": "P.1",
+      "Description": "Cilinderinhoud",
+      "Registration": "A",
+      "Tag": "71|A5|90"
+    },
+    "A-13": {
+      "Code": "P.2",
+      "Description": "Vermogen",
+      "Registration": "A",
+      "Tag": "71|A5|91"
+    },
+    "A-14": {
+      "Code": "P.3",
+      "Description": "Brandstof",
+      "Registration": "A",
+      "Tag": "71|A5|92"
+    },
+    "A-15": {
+      "Code": "T",
+      "Description": "Max. snelheid",
+      "Registration": "B",
+      "Tag": "72|9F25"
+    },
+    "A-16": {
+      "Code": "S.1",
+      "Description": "Zitplaatsen",
+      "Registration": "A",
+      "Tag": "71|A6|94"
+    },
+    "A-17": {
+      "Code": "H",
+      "Description": "Inschrijving geldig tot",
+      "Registration": "A",
+      "Tag": "71|8D",
+      "Presentation": "Date",
+      "Optional": true
+    }
+  }
+}

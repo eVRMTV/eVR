@@ -1,261 +1,65 @@
-/*
-Copyright (c) 2013, Dienst Wegverkeer, RDW, All rights reserved. 
+﻿using eVR.Reader.Data;
+using Microsoft.Extensions.Logging;
+using eVR.Reader.PCSC;
+using PCSC.Monitoring;
+using PCSC;
+using System.Diagnostics.CodeAnalysis;
 
-Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met: 
-
-• Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. 
-• Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. 
-• Neither the name of the Dienst Wegverkeer, RDW,  nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission. 
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-*/
-
-// -----------------------------------------------------------------------
-// <copyright file="MTVCardReader.cs" company="RDW">
-// RDW
-// </copyright>
-// -----------------------------------------------------------------------
-namespace EVR.Reader
+namespace eVR.Reader
 {
-    using System.Diagnostics;
-    using System.Security.Cryptography.X509Certificates;
-    using PCSC;
-    using EVR.Utils;
-
-    public class eVRCardReader
+    /// <summary>
+    /// Class used to read eVR specific data from an eVR card.
+    /// </summary>
+    /// <param name="parserTlv">A TLV parser</param>
+    /// <param name="logger">A logger to be used in this class</param>
+    /// <param name="readerLogger">A logger to be used in baseclass CardReader</param>
+    /// <param name="reader">A cardreader</param>
+    /// <param name="context">An application context to the PC/SC Resource Manager</param>
+    /// <param name="monitor">A monitor for card reader events/triggers</param>
+#pragma warning disable IDE1006 // Naming Styles
+    [SuppressMessage("csharpsquid", "S101", Justification = "The spelling of eVR does not match pascal case naming rules")]
+    public class eVRCardReader(
+#pragma warning restore IDE1006 // Naming Styles
+          IParserTlv parserTlv
+        , ILogger<eVRCardReader> logger
+        , ILogger<PCSC.CardReader> readerLogger
+        , ISCardReader reader
+        , ISCardContext context
+        , ISCardMonitor monitor)
+        : PCSC.CardReader(readerLogger, reader, context, monitor)
     {
-        public static readonly byte[] eVRCApplicatie = new byte[] { 0xA0, 0x00, 0x00, 0x04, 0x56, 0x45, 0x56, 0x52, 0x2D, 0x30, 0x31 };
-        private static TraceSource TS = new TraceSource("MTVCardReader");
-        public bool DisplayError = false;
+        #region Methods
 
-        public EFSOd EFSOd
+        /// <summary>
+        /// Read all elementary files on an eVR Card
+        /// </summary>
+        /// <param name="readerName"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public async Task<eVRCardState> Read(string readerName, CancellationToken cancellationToken)
         {
-            get;
-            private set;
-        }
-
-        public EFAA EFAA
-        {
-            get;
-            private set;
-        }
-
-        public RegistrationA RegistrationA
-        {
-            get;
-            private set;
-        }
-
-        public RegistrationB RegistrationB
-        {
-            get;
-            private set;
-        }
-
-        public RegistrationC RegistrationC
-        {
-            get;
-            private set;
-        }
-
-        private CardReader cardReader
-        {
-            get;
-            set;
-        }
-
-        private X509Certificate2 CSCA
-        {
-            get;
-            set;
-        }
-
-        private X509Certificate2[] CSCAList
-        {
-            get;
-            set;
-        }
-
-        public void StopMonitor ()
-        {
-            this.cardReader.StopMonitor();
-        }
-
-        public void StartMonitor ()
-        {
-            this.cardReader.StartMonitor();
-        }
-
-
-        public eVRCardReader (X509Certificate2 CSCA, CardRemovedEvent removedEvent, CardInsertedEvent insertedEvent)
-        {
-            TS.TraceI("Constructing MTVCardReader object.");
-            TS.TraceI("eVRCApplicatie = {0}", Helper.ByteArrayToString(eVRCApplicatie));
-            if (CSCA != null)
+            // recreate the state and elementary files
+            var state = new eVRCardState(parserTlv);
+            await ConnectReader(readerName);
+            state.ATR = await GetATRString();
+            await SelectMF();
+            foreach (var data in state.ElementaryFiles)
             {
-                this.CSCA = CSCA;
-                TS.TraceV("CSCA Subject : \"{0}\".", CSCA.Subject);
-                TS.TraceV("CSCA Effective date : \"{0}\".", CSCA.GetEffectiveDateString());
-                TS.TraceV("CSCA Expiration date : \"{0}\".", CSCA.GetExpirationDateString());
-            }
-            this.cardReader = new CardReader(removedEvent, insertedEvent);
-            TS.TraceI("MTVCardReader constructed.");
-        }
+                cancellationToken.ThrowIfCancellationRequested();
 
-        public eVRCardReader (X509Certificate2[] CSCA, CardRemovedEvent removedEvent, CardInsertedEvent insertedEvent)
-        {
-            TS.TraceI("Constructing MTVCardReader object.");
-            TS.TraceI("eVRCApplicatie = {0}", Helper.ByteArrayToString(eVRCApplicatie));
-            //if (CSCA != null)
-            //{
-            this.CSCAList = CSCA;
-            //TS.TraceV("CSCA Subject : \"{0}\".", CSCA.Subject);
-            //TS.TraceV("CSCA Effective date : \"{0}\".", CSCA.GetEffectiveDateString());
-            //TS.TraceV("CSCA Expiration date : \"{0}\".", CSCA.GetExpirationDateString());
-            //}
-            this.cardReader = new CardReader(removedEvent, insertedEvent);
-            TS.TraceI("MTVCardReader constructed.");
-        }
-
-        public void SelectReader (string readerName)
-        {
-            this.cardReader.SelectReader(readerName);
-            TS.TraceV("Reader \"{0}\" selected.", readerName);
-        }
-
-        public bool CheckATR ()
-        {
-            bool result = false;
-
-            TS.TraceI("Start ATR check.");
-            if (string.IsNullOrEmpty(this.cardReader.ReaderName))
-            {
-                throw new eVRCardReaderException("No reader selected.");
-            }
-            byte[] ATR = new byte[] { 0x3B, 0xD2, 0x18, 0x00, 0x81, 0x31, 0xFE, 0x45, 0x01, 0x01, 0xC1 };
-            TS.TraceV("ATR check: {0}", Helper.ByteArrayToString(ATR));
-
-            byte[] response = this.cardReader.GetATRString();
-            TS.TraceV("ATR command response: {0}", Helper.ByteArrayToString(response));
-
-            result = Helper.CompareByteArrays(response, ATR);
-
-            TS.TraceI("End ATR check, result: \"{0}\".", result);
-
-            return result;
-        }
-
-        public bool CardManagerDisabled ()
-        {
-            bool result = false;
-
-            TS.TraceI("Start CardManagerDisabled check.");
-            if (string.IsNullOrEmpty(this.cardReader.ReaderName))
-            {
-                throw new eVRCardReaderException("No reader selected.");
-            }
-            byte[] cmdSelectCardManager = new byte[] { 0x00, 0xA4, 0x04, 0x00, 0x08, 0xA0, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00, 0x00 };
-            TS.TraceV("SelectCardManager command: {0}", Helper.ByteArrayToString(cmdSelectCardManager));
-
-            byte[] response = new byte[512];
-
-            this.cardReader.Transmit(cmdSelectCardManager, ref response);
-            TS.TraceV("SelectCardManager response: {0}", Helper.ByteArrayToString(response));
-
-            result = (response.Length == 2 && response[0] == 0x6A && response[1] == 0x82);
-
-            TS.TraceI("End CardManagerDisabled check, result: \"{0}\".", result);
-
-            return (response.Length == 2 && response[0] == 0x6A && response[1] == 0x82);
-        }
-
-        public void Read ()
-        {
-            TS.TraceI("Start reading EF data.");
-            if (string.IsNullOrEmpty(this.cardReader.ReaderName))
-            {
-                throw new eVRCardReaderException("No reader selected.");
-            }
-
-            TS.TraceV("Reading EFSod.");
-            try
-            {
-                if (this.CSCAList == null)
+                logger.LogInformation("{name} read", data.Name);
+                data.RawData = await ReadElementaryFile(eVRDefinitions.AID, data.Identifier);
+                if (data.NeedsParsing)
                 {
-                    this.EFSOd = new EFSOd(eVRCardReader.eVRCApplicatie, CSCA, this.cardReader);
+                    logger.LogInformation("{name} parse", data.Name);
+                    data.ParsedData = await parserTlv.Parse(data.RawData);
                 }
-                else
-                {
-                    foreach (var cert in CSCAList)
-                    {
-                        this.EFSOd = new EFSOd(eVRCardReader.eVRCApplicatie, cert, this.cardReader);
-                        if (this.EFSOd.IsValid)
-                        {
-                            System.Console.WriteLine(cert);
-                            this.CSCA = cert;
-                            break;
-                        };
-
-                    }
-                }
+                logger.LogInformation("{name} construct", data.Name);
+                await data.Construct();
             }
-            catch (ElementaryFileException ex)
-            {
-                throw new eVRCardReaderException("Error reading EFSod.", ex);
-            }
-            TS.TraceV("EFSod read.");
-
-            TS.TraceV("Reading EFAA.");
-            try
-            {
-                this.EFAA = new EFAA(EFSOd, CSCA, eVRCardReader.eVRCApplicatie, this.cardReader);
-            }
-            catch (ElementaryFileException ex)
-            {
-                throw new eVRCardReaderException("Error reading EFAA.", ex);
-            }
-
-            TS.TraceV("Reading EFRegA.");
-            try
-            {
-                this.RegistrationA = new RegistrationA(EFSOd, CSCA, eVRCardReader.eVRCApplicatie, this.cardReader);
-            }
-            catch (ElementaryFileException ex)
-            {
-                throw new eVRCardReaderException("Error reading EFRegA.", ex);
-            }
-            TS.TraceV("EFRegA read.");
-
-            TS.TraceV("Reading EFRegB.");
-            try
-            {
-                this.RegistrationB = new RegistrationB(EFSOd, CSCA, eVRCardReader.eVRCApplicatie, this.cardReader, this.RegistrationA.CharacterSetEncoding);
-            }
-            catch (ElementaryFileException ex)
-            {
-                throw new eVRCardReaderException("Error reading EFRegB.", ex);
-            }
-            TS.TraceV("EFRegB read.");
-
-            TS.TraceV("Reading EFRegC.");
-            try
-            {
-                this.RegistrationC = new RegistrationC(EFSOd, CSCA, eVRCardReader.eVRCApplicatie, this.cardReader, this.RegistrationA.CharacterSetEncoding);
-            }
-            catch (ElementaryFileException ex)
-            {
-                throw new eVRCardReaderException("Error reading EFRegC.", ex);
-            }
-            TS.TraceV("EFRegC read.");
-
-            TS.TraceI("End reading EF data.");
+            return state;
         }
 
-        public void Read (string ReaderName)
-        {
-            this.cardReader.SelectReader(ReaderName);
-            this.Read();
-        }
+        #endregion
     }
 }

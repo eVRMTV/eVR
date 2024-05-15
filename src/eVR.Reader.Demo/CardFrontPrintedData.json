@@ -1,0 +1,74 @@
+{
+  "V-1": {
+    "Code": "A",
+    "Description": "(kenteken)",
+    "Registration": "A",
+    "Tag": "71|81"
+  },
+  "V-2": {
+    "Description": "(meldcode)",
+    "Registration": "A",
+    "Tag": "71|8A",
+    "Presentation": "ReportingCode"
+  },
+  "V-3": {
+    "Code": "B",
+    "Description": "(datum eerste toelating)",
+    "Registration": "C",
+    "Tag": "BF8700|BF8710|9F8711",
+    "Presentation": "Date"
+  },
+  "V-4": {
+    "Description": "(datum eerste inschrijving in Nederland)",
+    "Registration": "C",
+    "Tag": "BF8700|BF8710|9F8712",
+    "Presentation": "Date"
+  },
+  "V-5": {
+    "Code": "I",
+    "Description": "(datum tenaamstelling)",
+    "Registration": "A",
+    "Tag": "71|8E",
+    "Presentation": "Date"
+  },
+  "V-6": {
+    "Code": "C.1.1",
+    "Registration": "A",
+    "Tag": "71|A1|A2|83",
+    "Presentation": "Split",
+    "PresentationMaxLength": 35,
+    "PresentationIndex": 0
+  },
+  "V-7": {
+    "Registration": "A",
+    "Tag": "71|A1|A2|83",
+    "Presentation": "Split",
+    "PresentationMaxLength": 35,
+    "PresentationIndex": 1
+  },
+  "V-8": {
+    "Code": "C.1.2",
+    "Registration": "A",
+    "Tag": "71|A1|A2|84"
+  },
+  "V-9": {
+    "Code": "C.1.3",
+    "Registration": "A",
+    "Tag": "71|A1|A2|85",
+    "Presentation": "Address",
+    "PresentationMaxLength": 30,
+    "PresentationIndex": 0
+  },
+  "V-10": {
+    "Registration": "A",
+    "Tag": "71|A1|A2|85",
+    "Presentation": "Address",
+    "PresentationMaxLength": 30,
+    "PresentationIndex": 1
+  },
+  "V-11": {
+    "Description": "Documentnummer",
+    "Registration": "A",
+    "Tag": "71|9F38"
+  }
+}
