@@ -1,0 +1,26 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:viewmodels="clr-namespace:eVR.Reader.Demo.ViewModels"
+                    xmlns:views="clr-namespace:eVR.Reader.Demo.Views">
+    <DataTemplate DataType="{x:Type viewmodels:EmptyCardViewModel}">
+        <views:EmptyCardView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewmodels:CardFrontOldViewModel}">
+        <views:CardFrontOldView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewmodels:CardFrontNewViewModel}">
+        <views:CardFrontNewView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewmodels:CardBackOldViewModel}">
+        <views:CardBackOldView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewmodels:CardBackNewViewModel}">
+        <views:CardBackNewView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewmodels:CardViewModel}">
+        <views:CardView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewmodels:CvoDataViewModel}">
+        <views:XmlView Xml="{Binding Cvo}"/>
+    </DataTemplate>
+</ResourceDictionary>

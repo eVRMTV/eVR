@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="eVR.Reader.Demo.Views.CardFrontNewView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:eVR.Reader.Demo.Views"
+             xmlns:models="clr-namespace:eVR.Reader.Demo.Models"
+             mc:Ignorable="d" 
+             Height="450" Width="718">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/eVR.Reader.Demo;component/Resources/ResourceDictionary.xaml"/>
+                <ResourceDictionary>
+                    <DataTemplate DataType="{x:Type models:PrintedItem}" x:Key="printedItemSimpleValue">
+                        <TextBlock Text="{Binding Value}" FontSize="15"/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type models:PrintedItem}" x:Key="printedItemBigBoldValue">
+                        <TextBlock Text="{Binding Value}" FontSize="20" Margin="0,-3,0,0" FontWeight="Bold"/>
+                    </DataTemplate>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Image Source="/Resources/cardfrontNew.png" Margin="-30"
+               HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="127"/>
+                <RowDefinition Height="23.5"/>
+                <RowDefinition Height="23.5"/>
+                <RowDefinition Height="23.5"/>
+                <RowDefinition Height="23.5"/>
+                <RowDefinition Height="23.5"/>
+                <RowDefinition Height="23.5"/>
+                <RowDefinition Height="23.5"/>
+                <RowDefinition Height="23.5"/>
+                <RowDefinition Height="23.5"/>
+                <RowDefinition Height="23.5"/>
+                <RowDefinition Height="23.5"/>
+                <RowDefinition Height="25.5"/>
+                <RowDefinition Height="23.5"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="197"/>
+                <ColumnDefinition Width="45"/>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition Width="175"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <ContentControl ContentTemplate="{StaticResource printedItemBigBoldValue}" Grid.Row="1" Grid.Column="2" Content="{Binding PrintedData[V-1]}" />
+            <ContentControl ContentTemplate="{StaticResource printedItemSimpleValue}" Grid.Row="2" Grid.Column="2" Content="{Binding PrintedData[V-2]}" />
+            <ContentControl ContentTemplate="{StaticResource printedItemSimpleValue}" Grid.Row="3" Grid.Column="2" Content="{Binding PrintedData[V-3]}" />
+            <ContentControl ContentTemplate="{StaticResource printedItemSimpleValue}" Grid.Row="4" Grid.Column="2" Content="{Binding PrintedData[V-4]}" />
+            <ContentControl ContentTemplate="{StaticResource printedItemSimpleValue}" Grid.Row="5" Grid.Column="2" Content="{Binding PrintedData[V-5]}" />
+            <ContentControl ContentTemplate="{StaticResource printedItemBigBoldValue}" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="3" Content="{Binding PrintedData[V-6]}" />
+            <ContentControl ContentTemplate="{StaticResource printedItemBigBoldValue}" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="3" Content="{Binding PrintedData[V-7]}" />
+            <ContentControl ContentTemplate="{StaticResource printedItemSimpleValue}" Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="3" Content="{Binding PrintedData[V-8]}" />
+            <ContentControl ContentTemplate="{StaticResource printedItemSimpleValue}" Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="3" Content="{Binding PrintedData[V-9]}" />
+            <ContentControl ContentTemplate="{StaticResource printedItemSimpleValue}" Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="3" Content="{Binding PrintedData[V-10]}" />
+            <ContentControl ContentTemplate="{StaticResource printedItemSimpleValue}" Grid.Row="13" Grid.Column="4" Content="{Binding PrintedData[V-11]}"/>
+
+        </Grid>
+    </Grid>
+</UserControl>

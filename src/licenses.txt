@@ -1,0 +1,81 @@
+####################################################################################################
+Package:BerTlv.NET
+Version:2.0.3
+project URL:https://github.com/kspearrin/BerTlv.NET
+Description:A library for parsing BER TLV data. For documentation, visit https://github.com/kspearrin/BerTlv.NET
+licenseUrl:
+license Type:
+
+####################################################################################################
+Package:BouncyCastle.Cryptography
+Version:2.3.0
+project URL:https://www.bouncycastle.org/csharp/
+Description:BouncyCastle.NET is a popular cryptography library for .NET
+licenseUrl:https://licenses.nuget.org/MIT
+license Type:MIT
+
+####################################################################################################
+Package:Microsoft.Extensions.Configuration.Abstractions
+Version:8.0.0
+project URL:https://dot.net/
+Description:Provides abstractions of key-value pair based configuration. Interfaces defined in this package are implemented by classes in Microsoft.Extensions.Configuration and other configuration packages.
+licenseUrl:https://licenses.nuget.org/MIT
+license Type:MIT
+
+####################################################################################################
+Package:Microsoft.Extensions.Hosting
+Version:8.0.0
+project URL:https://dot.net/
+Description:Hosting and startup infrastructures for applications.
+licenseUrl:https://licenses.nuget.org/MIT
+license Type:MIT
+
+####################################################################################################
+Package:Microsoft.Extensions.Logging.Abstractions
+Version:8.0.1
+project URL:https://dot.net/
+Description:Logging abstractions for Microsoft.Extensions.Logging.
+
+Commonly Used Types:
+Microsoft.Extensions.Logging.ILogger
+Microsoft.Extensions.Logging.ILoggerFactory
+Microsoft.Extensions.Logging.ILogger<TCategoryName>
+Microsoft.Extensions.Logging.LogLevel
+Microsoft.Extensions.Logging.Logger<T>
+Microsoft.Extensions.Logging.LoggerMessage
+Microsoft.Extensions.Logging.Abstractions.NullLogger
+licenseUrl:https://licenses.nuget.org/MIT
+license Type:MIT
+
+####################################################################################################
+Package:Microsoft.Extensions.Options
+Version:8.0.2
+project URL:https://dot.net/
+Description:Provides a strongly typed way of specifying and accessing settings using dependency injection.
+licenseUrl:https://licenses.nuget.org/MIT
+license Type:MIT
+
+####################################################################################################
+Package:PCSC
+Version:6.2.0
+project URL:https://github.com/danm-de/pcsc-sharp
+Description:Contains classes to access the Personal Computer/Smart Card Resource Manager using the system's native PC/SC API.  The library is written to run on multiple platforms (.Net Framework, .Net Core or Mono using PCSC Lite).
+licenseUrl:https://www.nuget.org/packages/PCSC/6.2.0/License
+license Type:COPYING.txt
+
+####################################################################################################
+Package:PCSC.Iso7816
+Version:6.2.0
+project URL:https://github.com/danm-de/pcsc-sharp
+Description:Implements partial ISO7816 support (APDU etc.) for PCSC.
+licenseUrl:https://www.nuget.org/packages/PCSC.Iso7816/6.2.0/License
+license Type:COPYING.txt
+
+####################################################################################################
+Package:Serilog.Extensions.Logging.File
+Version:3.0.0
+project URL:https://github.com/serilog/serilog-extensions-logging-file
+Description:Add file logging to ASP.NET Core apps with one line of code.
+licenseUrl:https://www.nuget.org/packages/Serilog.Extensions.Logging.File/3.0.0/License
+license Type:LICENSE
+
