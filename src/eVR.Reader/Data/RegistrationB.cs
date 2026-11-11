@@ -15,7 +15,7 @@ namespace eVR.Reader.Data
         #region Properties
 
         public string Name => "Registration B";
-        public byte[] Identifier => new byte[] { 0xD0, 0x11 };
+        public byte[] Identifier => [0xD0, 0x11];
         public string FileIDHexValue { get; private set; }
         public byte[] RawData { get; set; } = [];
         public bool NeedsParsing => true;

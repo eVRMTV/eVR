@@ -15,7 +15,7 @@ namespace eVR.Reader.Data
         #region Properties
 
         public string Name => "Signature A";
-        public byte[] Identifier => new byte[] { 0xE0, 0x01 };
+        public byte[] Identifier => [0xE0, 0x01];
         public string FileIDHexValue { get; private set; }
         public byte[] RawData { get; set; } = [];
         public bool NeedsParsing => true;

@@ -3,6 +3,7 @@ using global::PCSC;
 using global::PCSC.Iso7816;
 using global::PCSC.Monitoring;
 using Microsoft.Extensions.Logging;
+using System.Diagnostics.CodeAnalysis;
 
 namespace eVR.Reader.PCSC
 {
@@ -13,6 +14,7 @@ namespace eVR.Reader.PCSC
     /// <param name="reader">A smart card reader</param>
     /// <param name="context">An application context to the PC/SC Resource Manager</param>
     /// <param name="monitor">A monitor for card reader events/triggers</param>
+    [SuppressMessage("external_roslyn", "CA1873")]
     public class CardReader(
           ILogger<CardReader> logger
         , ISCardReader reader
@@ -187,7 +189,7 @@ namespace eVR.Reader.PCSC
             var readerNames = context.GetReaders();
             foreach (var readerName in readerNames)
             {
-                logger.LogTrace("Found reader with name: {readerName}", readerName);
+                logger.LogTrace("Found reader with name: {ReaderName}", readerName);
             }
             return readerNames;
         }
@@ -200,9 +202,9 @@ namespace eVR.Reader.PCSC
         {
             foreach (var readerName in readerNames)
             {
-                logger.LogTrace("Monitoring started for reader: {readerName}", readerName);
+                logger.LogTrace("Monitoring started for reader: {ReaderName}", readerName);
             }
-            monitor?.Start(readerNames.ToArray());
+            monitor?.Start([.. readerNames]);
         }
 
         /// <summary>
@@ -231,7 +233,7 @@ namespace eVR.Reader.PCSC
                 {
                     throw new CardReaderException(SCardError.ProtocolMismatch, "Protocol not supported: " + reader.ActiveProtocol.ToString());
                 }
-                logger.LogTrace("Connected to reader {readerName} with protocol(s) {activeProtocol}", readerName, reader.ActiveProtocol);
+                logger.LogTrace("Connected to reader {ReaderName} with protocol(s) {ActiveProtocol}", readerName, reader.ActiveProtocol);
             });
         }
 
@@ -324,7 +326,7 @@ namespace eVR.Reader.PCSC
         /// <exception cref="CardReaderException"></exception>
         private byte[] ReadFileNextBlock(int offSet, int lenght)
         {
-            logger.LogTrace("Start ReadFileNextBlock with offset: {offSet} and length: {lenght}", offSet, lenght);
+            logger.LogTrace("Start ReadFileNextBlock with offset: {OffSet} and length: {Lenght}", offSet, lenght);
 
             var pbRecvBuffer = new byte[lenght + 2]; // Last 2 bytes are sw1 + sw2
             var offSetArr = Helper.IntToByteArray(offSet, 2);

@@ -18,6 +18,7 @@ namespace eVR.Reader
     /// <param name="monitor">A monitor for card reader events/triggers</param>
 #pragma warning disable IDE1006 // Naming Styles
     [SuppressMessage("csharpsquid", "S101", Justification = "The spelling of eVR does not match pascal case naming rules")]
+    [SuppressMessage("external_roslyn", "CA1873")]
     public class eVRCardReader(
 #pragma warning restore IDE1006 // Naming Styles
           IParserTlv parserTlv
@@ -47,14 +48,14 @@ namespace eVR.Reader
             {
                 cancellationToken.ThrowIfCancellationRequested();
 
-                logger.LogInformation("{name} read", data.Name);
+                logger.LogInformation("{Name} read", data.Name);
                 data.RawData = await ReadElementaryFile(eVRDefinitions.AID, data.Identifier);
                 if (data.NeedsParsing)
                 {
-                    logger.LogInformation("{name} parse", data.Name);
+                    logger.LogInformation("{Name} parse", data.Name);
                     data.ParsedData = await parserTlv.Parse(data.RawData);
                 }
-                logger.LogInformation("{name} construct", data.Name);
+                logger.LogInformation("{Name} construct", data.Name);
                 await data.Construct();
             }
             return state;

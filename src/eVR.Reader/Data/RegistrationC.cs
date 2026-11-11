@@ -16,7 +16,7 @@ namespace eVR.Reader.Data
         #region Properties
 
         public string Name => "Registration C";
-        public byte[] Identifier => new byte[] { 0xD0, 0x21 };
+        public byte[] Identifier => [0xD0, 0x21];
         public string FileIDHexValue { get; private set; }
         public byte[] RawData { get; set; } = [];
         public bool NeedsParsing => true;
@@ -31,7 +31,7 @@ namespace eVR.Reader.Data
 
         public RegistrationC()
         {
-            VIN = new List<string>();
+            VIN = [];
             FileIDHexValue = Helper.ToHexWithSpaces(Identifier);
         }
 
@@ -47,7 +47,7 @@ namespace eVR.Reader.Data
                 var zippedXMLsTLV = ParsedData.Tag("BF8700|BF8703|9F8705")?.Value;
                 int i = 0;
                 var cvos = new List<string>();
-                VIN = new List<string>();
+                VIN = [];
 
                 while (zippedXMLsTLV != null && zippedXMLsTLV.Length != 0)
                 {

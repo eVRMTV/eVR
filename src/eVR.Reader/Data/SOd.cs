@@ -28,7 +28,7 @@ namespace eVR.Reader.Data
         #region Properties
 
         public string Name => "SOd";
-        public byte[] Identifier => new byte[] { 0x00, 0x1D };
+        public byte[] Identifier => [0x00, 0x1D];
         public string FileIDHexValue { get; private set; }
         public byte[] RawData { get; set; } = [];
         public bool NeedsParsing => true;
@@ -62,7 +62,7 @@ namespace eVR.Reader.Data
         public async Task Construct()
         {
             var certificate = this.ParsedData.Tag("30|A0|30|A0")!.Value;
-            this.DSCertificate = new X509Certificate2(certificate);
+            this.DSCertificate = X509CertificateLoader.LoadCertificate(certificate);
 
             this.Signature = this.ParsedData.Tag("30|A0|30|31|30|04")!.Value;
             this.Algorithm = this.ParsedData.Tag("30|A0|30|31|30|30|06")!.Value;

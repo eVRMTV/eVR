@@ -39,7 +39,7 @@ namespace eVR.Reader.Validators
                         logger.LogInformation("Card returned ATR of 3th generation card");
                         return true;
                     default:
-                        logger.LogError("Card returned unkown ATR: {atr}", atrString);
+                        logger.LogError("Card returned unkown ATR: {Atr}", atrString);
                         return false;
                 }
             });

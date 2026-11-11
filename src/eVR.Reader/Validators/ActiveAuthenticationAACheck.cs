@@ -74,7 +74,7 @@ namespace eVR.Reader.Validators
             var di1 = new DerInteger(ConvertToBigInteger(data.Take(keySize).ToArray()));
             var di2 = new DerInteger(ConvertToBigInteger(data.Skip(keySize).ToArray()));
 
-            var seq = new DerSequence(new Asn1Encodable[] { di1, di2 });
+            var seq = new DerSequence(di1, di2);
 
             var signatureAlgorithm = Oids.GetSignatureAlgorithm(state.SecurityInfos.HashAlgorithmOid!);
             var signer = SignerUtilities.GetSigner(signatureAlgorithm);
