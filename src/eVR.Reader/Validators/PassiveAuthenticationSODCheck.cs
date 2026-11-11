@@ -53,7 +53,7 @@ namespace eVR.Reader.Validators
             }
             if (DateTime.Now < ds.NotBefore) // note: ds.NotAfter is not checked: a card with an expired DS Certificate is still valid.
             {
-                logger.LogError("The DS Certificate is not valid at this moment ({notBefore} - {notAfter}", ds.NotBefore, ds.NotAfter);
+                logger.LogError("The DS Certificate is not valid at this moment ({NotBefore} - {NotAfter}", ds.NotBefore, ds.NotAfter);
                 return false;
             }
 
@@ -77,9 +77,9 @@ namespace eVR.Reader.Validators
                 var dsCertificateBC = new X509CertificateParser().ReadCertificate(ds.RawData);
                 dsCertificateBC.Verify(cscaBC.GetPublicKey());
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                logger.LogError("Could not verify the signature of the DS Certificate");
+                logger.LogError(ex, "Could not verify the signature of the DS Certificate");
                 return false;
             }
             return true;

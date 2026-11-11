@@ -1,6 +1,7 @@
 ﻿using eVR.Reader.PCSC;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using System.Diagnostics.CodeAnalysis;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 
@@ -11,6 +12,7 @@ namespace eVR.Reader.Services
     /// </summary>
     /// <param name="config">A reference to the config file</param>
     /// <param name="logger">A logger</param>
+    [SuppressMessage("external_roslyn", "CA1873")]
     public class CsCaCache(IOptions<Configuration> config, ILogger<CsCaCache> logger)
     {
         #region Private Fields
@@ -33,18 +35,18 @@ namespace eVR.Reader.Services
                 {
                     foreach (var file in Directory.EnumerateFiles(config.Value.CSCAFolder))
                     {
-                        var csca = new X509Certificate2(file);
-                        logger.LogTrace("CSCA Subject : \"{subject}\".", csca.Subject);
-                        logger.LogTrace("CSCA Effective date : \"{effectiveDate}\".", csca.GetEffectiveDateString());
-                        logger.LogTrace("CSCA Expiration date : \"{expirationDate}\".", csca.GetExpirationDateString());
+                        var csca = X509CertificateLoader.LoadCertificateFromFile(file);
+                        logger.LogTrace("CSCA Subject : \"{Subject}\".", csca.Subject);
+                        logger.LogTrace("CSCA Effective date : \"{EffectiveDate}\".", csca.GetEffectiveDateString());
+                        logger.LogTrace("CSCA Expiration date : \"{ExpirationDate}\".", csca.GetExpirationDateString());
                         _cscas.Add(csca);
                     }
                 }
                 catch (CryptographicException ex)
                 {
-                    logger.LogError("{message}{newLine}{cscaFolder}", ex.Message, Environment.NewLine,
+                    logger.LogError(ex, "{Message}{NewLine}{CscaFolder}", ex.Message, Environment.NewLine,
                         string.IsNullOrEmpty(config.Value.CSCAFolder) ? "N/A" : config.Value.CSCAFolder);
-                    throw;
+                    throw new CryptographicException($"Could not read one of the CSCA Certificates: {ex.Message}", ex);
                 }
             });
         }
@@ -61,7 +63,7 @@ namespace eVR.Reader.Services
             var csca = _cscas.FirstOrDefault(c => Helper.CompareByteArrays(Helper.GetAuthorityKeyIdentifier(c).RawData, authorityKeyIdentifier.RawData));
             if (csca != null)
             {
-                logger.LogInformation("CSCA found: {subject}", csca.Subject);
+                logger.LogInformation("CSCA found: {Subject}", csca.Subject);
                 return csca;
             }
             logger.LogWarning("The CSCA certificate could not be found");

@@ -15,7 +15,7 @@ namespace eVR.Reader.Data
     {
         #region Properties
         public string Name => "SecurityInfos";
-        public byte[] Identifier => new byte[] { 0x00, 0x0E };
+        public byte[] Identifier => [0x00, 0x0E];
         public string FileIDHexValue { get; private set; }
         public byte[] RawData { get; set; } = [];
         public bool NeedsParsing => true;

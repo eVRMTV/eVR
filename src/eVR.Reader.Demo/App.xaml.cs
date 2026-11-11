@@ -49,7 +49,7 @@ namespace eVR.Reader.Demo
         /// </summary>
         /// <param name="configuration"></param>
         /// <param name="services"></param>
-        private void ConfigureServices(IConfiguration configuration, IServiceCollection services)
+        private static void ConfigureServices(IConfiguration configuration, IServiceCollection services)
         {
             var configSection = configuration.GetSection(nameof(Configuration));
 

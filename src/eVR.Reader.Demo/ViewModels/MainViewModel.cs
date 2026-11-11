@@ -48,13 +48,11 @@ namespace eVR.Reader.Demo.ViewModels
         /// </summary>
         /// <param name="cardReaderService">A CardReaderService</param>
         /// <param name="logger">A logger</param>
-        public MainViewModel(
-              ICardReaderService cardReaderService
-            , ILogger<MainViewModel> logger)
+        public MainViewModel(ICardReaderService cardReaderService)
         {
             _cardReaderService = cardReaderService;
             ViewModels = [new EmptyCardViewModel()];
-            CurrentViewModel = ViewModels.First();
+            CurrentViewModel = ViewModels[0];
         }
 
         /// <summary>
@@ -107,7 +105,7 @@ namespace eVR.Reader.Demo.ViewModels
                         Application.Current.Dispatcher.Invoke(() => ViewModels.Add(new CvoDataViewModel(cvo, cvoNumber++)));
                     }
                 }
-                Application.Current.Dispatcher.Invoke(() => CurrentViewModel = ViewModels.First());
+                Application.Current.Dispatcher.Invoke(() => CurrentViewModel = ViewModels[0]);
             });
         }
         #endregion

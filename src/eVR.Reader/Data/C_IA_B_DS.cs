@@ -18,7 +18,7 @@ namespace eVR.Reader.Data
         #region Properties
 
         public string Name => "CIA B DS";
-        public byte[] Identifier => new byte[] { 0xC0, 0x11 };
+        public byte[] Identifier => [0xC0, 0x11];
         public string FileIDHexValue { get; private set; }
         public byte[] RawData { get; set; } = [];
         public bool NeedsParsing => true;
@@ -42,7 +42,7 @@ namespace eVR.Reader.Data
         {
             return Task.Run(() =>
             {
-                this.DSCertificate = new X509Certificate2(this.RawData);
+                this.DSCertificate = X509CertificateLoader.LoadCertificate(this.RawData);
             });
         }
 

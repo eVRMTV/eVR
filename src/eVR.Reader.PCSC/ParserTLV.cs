@@ -26,7 +26,7 @@ namespace eVR.Reader.PCSC
                     return [];
                 }
                 var parsed = Tlv.Parse(tlv);
-                return this.Parse(string.Empty, parsed);
+                return Parse(string.Empty, parsed);
             });            
         }
 
@@ -41,7 +41,7 @@ namespace eVR.Reader.PCSC
         /// <param name="list"></param>
         /// <returns></returns>
 
-        private List<KeyValuePair<string, Tlv>> Parse(string hexTag, ICollection<Tlv> list)
+        private static List<KeyValuePair<string, Tlv>> Parse(string hexTag, ICollection<Tlv> list)
         {
             var l = new List<KeyValuePair<string, Tlv>>();
             foreach (var entry in list)

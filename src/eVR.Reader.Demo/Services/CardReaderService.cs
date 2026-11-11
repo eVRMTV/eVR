@@ -3,6 +3,7 @@ using eVR.Reader.Services;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using PCSC.Monitoring;
+using System.Diagnostics.CodeAnalysis;
 using System.Security.Cryptography;
 using System.Windows;
 
@@ -16,6 +17,7 @@ namespace eVR.Reader.Demo.Services
     /// <param name="reader">An eVR specific card reader</param>
     /// <param name="csCaCache">A cache with CSCA certificates</param>
     /// <param name="validators">The validators that will be used to validate the card</param>
+    [SuppressMessage("external_roslyn", "CA1873")]
     internal sealed class CardReaderService(
           IOptions<Configuration> config
         , ILogger<CardReaderService> logger
@@ -108,7 +110,7 @@ namespace eVR.Reader.Demo.Services
             }
             catch (Exception ex)
             {
-                logger.LogError(ex, "An error occurred: {ex}", ex.Message);
+                logger.LogError(ex, "An error occurred: {Message}", ex.Message);
             }
         }
 
@@ -121,7 +123,6 @@ namespace eVR.Reader.Demo.Services
         {
             try
             {
-                logger.LogInformation("Card inserted, waiting {CardAccessDelay} ms before reading, to avoid timing issues with fast readers", _config.CardAccessDelay);
                 await Task.Delay(_config.CardAccessDelay);
 
                 logger.LogInformation("Started reading card data with timeout of {ReadTimeout} ms", _config.ReadTimeout);
@@ -136,9 +137,9 @@ namespace eVR.Reader.Demo.Services
 
                 return true;
             }
-            catch (OperationCanceledException)
+            catch (OperationCanceledException ex)
             {
-                logger.LogWarning("Reading card data cancelled because of timeout or manual action");
+                logger.LogWarning(ex, "Reading card data cancelled because of timeout or manual action");
 
                 _cardReadResult!.CardState = null;
                 await _client!.UpdateReadStatus("Reading card cancelled");
@@ -149,7 +150,7 @@ namespace eVR.Reader.Demo.Services
             catch (Exception ex)
             {
                 await _client!.UpdateReadStatus("An error occurred, see logging");
-                logger.LogError("Unable to read card: encountered an unknown or empty response: {Message}", ex.Message);
+                logger.LogError(ex, "Unable to read card: encountered an unknown or empty response: {Message}", ex.Message);
                 return false;
             }
             finally
